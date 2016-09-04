@@ -1,0 +1,12 @@
+{
+  "name": "blah",
+  "version": "1.0.0",
+  "description": "",
+  "main": "blah.js",
+  "author": "djdolphin",
+  "license": "MIT",
+  "dependencies": {
+    "jszip": "^3.1.2",
+    "prompt-promise": "^1.0.3"
+  }
+}

@@ -1,0 +1,18 @@
+{
+	"objName": "Stage",
+	"costumes": [{
+			"costumeName": "backdrop1",
+			"baseLayerID": 0,
+			"baseLayerMD5": "",
+			"bitmapResolution": 1,
+			"rotationCenterX": 240,
+			"rotationCenterY": 180
+		}],
+	"currentCostumeIndex": 0,
+  "penLayerMD5": "",
+  "penLayerID": 0,
+	"tempoBPM": 60,
+	"videoAlpha": 0.5,
+  "children": [],
+  "info": {}
+}
