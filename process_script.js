@@ -1,10 +1,11 @@
 'use strict'
 
 var s = require('./scratch_prims')
+var uuid = require('uuid')
 
 module.exports = function processScript (inputScript) {
   var commandId = 0
-  var interpreterVariableId = 0
+  var interpreterCommandIdVariable = uuid.v4()
 
   var setVarCommands = []
   var listDeleteCommands = []
@@ -30,7 +31,7 @@ module.exports = function processScript (inputScript) {
 
   for (let i = nextCommands.length - 1; i >= 1; i--) {
     function bleh () {
-      return s.equals(s.getVar('INTERPRETER COMMAND ID'), i)
+      return s.equals(s.getVar(interpreterCommandIdVariable), i)
     }
 
     if (setVarCommands[i]) {
@@ -111,12 +112,12 @@ module.exports = function processScript (inputScript) {
 
   var outputScript = [
     ['whenGreenFlag'],
-    s.setVar('INTERPRETER COMMAND ID', 1),
+    s.setVar(interpreterCommandIdVariable, 1),
     s.until(
-      s.equals(s.getVar('INTERPRETER COMMAND ID'), -1),
+      s.equals(s.getVar(interpreterCommandIdVariable), -1),
       [
         s.setVar(
-          'INTERPRETER COMMAND ID',
+          interpreterCommandIdVariable,
           s.and(
             s.join(
               s.and(
@@ -161,8 +162,7 @@ module.exports = function processScript (inputScript) {
   }
 
   function newVariable () {
-    interpreterVariableId += 1;
-    return 'INTERPRETER ' + interpreterVariableId
+    return uuid.v4()
   }
 
   function setSetVarCommand (args) {
