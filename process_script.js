@@ -1,3 +1,5 @@
+'use strict'
+
 var s = require('./scratch_prims')
 
 module.exports = function processScript (inputScript) {

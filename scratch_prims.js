@@ -1,3 +1,5 @@
+'use strict'
+
 // Scratch primitives and some custom utilities
 
 var s = {
